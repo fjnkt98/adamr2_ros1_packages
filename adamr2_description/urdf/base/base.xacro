@@ -11,7 +11,7 @@
       <visual>
         <origin xyz="0.0 0.0 0.0"/>
         <geometry>
-          <box size="0.59 0.32 0.275"/>
+          <mesh filename="package://adamr2_description/meshes/base.stl"/>
         </geometry>
         <material name="red">
           <color rgba="1.0 0.0 0.0 1.0"/>
