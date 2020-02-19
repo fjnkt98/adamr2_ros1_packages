@@ -22,7 +22,7 @@
   <!-- right -->
   <xacro:wheel prefix="right" parent="base_link">
     <origin xyz="0.0 -0.1915 -0.1845"/>
-    <axis xyz="0 -1 0"/>
+    <axis xyz="0 1 0"/>
   </xacro:wheel>
 
   <!--casters-->
@@ -34,7 +34,7 @@
 
   <!-- front -->
   <xacro:caster prefix="front" parent="base_link">
-    <origin xyz="0.275 0.0 -0.1498"/>
+    <origin xyz="0.275 0.0 -0.1498" rpy="0 0 ${radians(180)}"/>
     <axis xyz="0 0 1"/>
   </xacro:caster>
 
