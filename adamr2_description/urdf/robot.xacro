@@ -15,26 +15,26 @@
   <!--wheels-->
   <!-- left -->
   <xacro:wheel prefix="left" parent="base_link">
-    <origin xyz="0.0 0.1915 -184.5"/>
+    <origin xyz="0.0 0.1915 -0.1845"/>
     <axis xyz="0 1 0"/>
   </xacro:wheel>
 
   <!-- right -->
   <xacro:wheel prefix="right" parent="base_link">
-    <origin xyz="0.0 -0.1915 -184.5"/>
+    <origin xyz="0.0 -0.1915 -0.1845"/>
     <axis xyz="0 -1 0"/>
   </xacro:wheel>
 
   <!--casters-->
   <!-- back -->
   <xacro:caster prefix="back" parent="base_link">
-    <origin xyz="-0.275 0.0 -149.8"/>
+    <origin xyz="-0.275 0.0 -0.1498"/>
     <axis xyz="0 0 1"/>
   </xacro:caster>
 
   <!-- front -->
   <xacro:caster prefix="front" parent="base_link">
-    <origin xyz="0.275 0.0 -149.8"/>
+    <origin xyz="0.275 0.0 -0.1498"/>
     <axis xyz="0 0 1"/>
   </xacro:caster>
 
