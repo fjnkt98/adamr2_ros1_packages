@@ -12,7 +12,7 @@
       <visual>
         <origin rpy="0.0 0.0 0.0"/>
         <geometry>
-          <mesh filename="package://adamr2_description/meshes/caster.stl"/>
+          <mesh filename="package://adamr2_description/meshes/caster_link.STL"/>
         </geometry>
         <material name="red">
           <color rgba="0.0 0.0 0.0 1.0"/>
