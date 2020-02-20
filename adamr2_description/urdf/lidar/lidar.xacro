@@ -1,16 +1,16 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
-  <xacro:macro name="lrf" params="prefix parent *joint_origin">
-    <joint name="${prefix}_lrf_joint" type="fixed">
+  <xacro:macro name="lidar" params="parent *joint_origin">
+    <joint name="lidar_joint" type="fixed">
       <xacro:insert_block name="joint_origin"/>
       <parent link="${parent}"/>
-      <child link="${prefix}_lrf_link"/>
+      <child link="lidar_link"/>
     </joint>
 
-    <link name="${prefix}_lrf_link">
+    <link name="lidar_link">
       <visual>
         <geometry>
-          <mesh filename="package://nitic_description/meshes/LRF.STL"/>
+          <mesh filename="package://adamr2_description/meshes/lidar_link.STL"/>
         </geometry>
         <material name="blue">
           <color rgba="0.0 0.0 1.0 1.0"/>
