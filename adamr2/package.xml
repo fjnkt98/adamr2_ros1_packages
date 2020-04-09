@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>adamr2</name>
+  <version>0.0.0</version>
+  <description>The adamr2 metapackage</description>
+
+  <maintainer email="a19613@g.ichinoseki.ac.jp">fjnkt98</maintainer>
+
+  <license>BSD</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>adamr2_bringup</build_depend>
+  <build_depend>adamr2_description</build_depend>
+  <build_export_depend>adamr2_bringup</build_export_depend>
+  <build_export_depend>adamr2_description</build_export_depend>
+  <exec_depend>adamr2_bringup</exec_depend>
+  <exec_depend>adamr2_description</exec_depend>
+
+  <export>
+    <metapackage/>
+  </export>
+</package>
