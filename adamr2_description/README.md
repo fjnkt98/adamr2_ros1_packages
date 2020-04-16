@@ -12,6 +12,7 @@
 | front_caster_wheel_link | 前方キャスターのホイール |
 | back_caster_support_link | 後方キャスターのサポート |
 | back_caster_wheel_link | 後方キャスターのホイール |
+| lidar_link | LiDARのリンク |
 
 ## Parent-tree
 
@@ -23,8 +24,9 @@ base_footprint
            ├ left_wheel_link
            ├ front_caster_support_link
            │    └ front_caster_wheel_link
-           └ back_caster_support_link
-                 └ back_caster_wheel_link
+           ├ back_caster_support_link
+           │    └ back_caster_wheel_link
+           └ lidar_link
 ```
 
 ## Launch file
