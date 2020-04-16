@@ -1,0 +1,19 @@
+<launch>
+  <arg name="model" default="$(find adamr2_description)/urdf/robot.xacro"/>
+  <arg name="ypspur_params" default="$(find adamr2_control)/config/adamr2.param"/>
+  <arg name="ypspur_dev" default="/dev/ttyUSB0"/>
+
+  <param name="robot_description" command="$(find xacro)/xacro --inorder $(arg model)"/>
+
+  <rosparam file="$(find adamr2_control)/config/controller.yaml" command="load"/>
+
+  <group ns="adamr2">
+    <node name="controller_spawner" type="spawner" pkg="controller_manager"
+          respawn="false" output="screen"
+          args="joint_state_controller diff_drive_controller"/>
+    
+    <node name="robot_state_publisher" type="robot_state_publisher"
+          pkg="robot_state_publisher" respawn="false"
+          output="screen"/>
+  </group>
+</launch>
