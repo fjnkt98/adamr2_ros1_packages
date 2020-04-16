@@ -15,5 +15,10 @@
     <node name="robot_state_publisher" type="robot_state_publisher"
           pkg="robot_state_publisher" respawn="false"
           output="screen"/>
+    
+    <node name="ypspur_launcher" type="ypspur_launcher.sh"
+          pkg="adamr2_control" output="screen"
+          args="$(arg ypspur_params) $(arg ypspur_dev)"
+          />
   </group>
 </launch>
