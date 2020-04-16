@@ -9,12 +9,10 @@
   <license>BSD</license>
 
   <buildtool_depend>catkin</buildtool_depend>
-  <build_depend>adamr2_bringup</build_depend>
-  <build_depend>adamr2_description</build_depend>
-  <build_export_depend>adamr2_bringup</build_export_depend>
-  <build_export_depend>adamr2_description</build_export_depend>
-  <exec_depend>adamr2_bringup</exec_depend>
-  <exec_depend>adamr2_description</exec_depend>
+  <depend>adamr2_bringup</depend>
+  <depend>adamr2_description</depend>
+  <depend>adamr2_control</depend>
+  <depend>adamr2_driver</depend>
 
   <export>
     <metapackage/>
