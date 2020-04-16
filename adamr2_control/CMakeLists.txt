@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(adamr2_driver)
+project(adamr2_control)
 
 find_package(catkin REQUIRED)
 
