@@ -15,8 +15,8 @@ while true
     if [ $isAlive = 1 ]; then
       : #pass
     else
-      echo "ypspur restart"
-      ypspur-coordinator -p $1 -d /dev/sensors/icart-mini &
+      ypspur-coordinator -p $1 -d $2 &
+      echo "ypspur restarted."
     fi
 
     sleep 1
