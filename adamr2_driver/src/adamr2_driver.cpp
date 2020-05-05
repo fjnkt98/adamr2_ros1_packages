@@ -3,7 +3,7 @@
 
 namespace adamr2 {
   Adamr2Driver::Adamr2Driver() {
-		pos_[0] = 0.0;
+    pos_[0] = 0.0;
     pos_[1] = 0.0;
     vel_[0] = 0.0;
     vel_[1] = 0.0;
