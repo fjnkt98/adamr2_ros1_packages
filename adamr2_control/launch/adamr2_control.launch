@@ -5,7 +5,7 @@
 
   <param name="robot_description" command="$(find xacro)/xacro --inorder $(arg model)"/>
 
-  <rosparam file="$(find adamr2_control)/config/controller.yaml" command="load"/>
+  <rosparam file="$(find adamr2_control)/config/controller.yml" command="load"/>
 
   <group ns="adamr2">
     <node name="controller_spawner" type="spawner" pkg="controller_manager"
@@ -16,9 +16,11 @@
           pkg="robot_state_publisher" respawn="false"
           output="screen"/>
     
-    <node name="ypspur_launcher" type="ypspur_launcher.sh"
+    <!--<node name="ypspur_launcher" type="ypspur_launcher.sh"
           pkg="adamr2_control" output="screen"
-          args="$(arg ypspur_params) $(arg ypspur_dev)"
-          />
+          args="$(arg ypspur_params) $(arg ypspur_dev)"/>-->
+
+    <node name="adamr2_driver_node" type="adamr2_driver_node" pkg="adamr2_driver"
+          output="screen"/>
   </group>
 </launch>
