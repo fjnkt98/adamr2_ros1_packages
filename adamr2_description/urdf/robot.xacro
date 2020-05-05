@@ -2,6 +2,7 @@
 <robot name="adamr2" xmlns:xacro="http://ros.org/wiki/xacro">
   <xacro:include filename="$(find adamr2_description)/urdf/base/base.xacro"/>
   <xacro:include filename="$(find adamr2_description)/urdf/wheel/wheel.xacro"/>
+  <xacro:include filename="$(find adamr2_description)/urdf/wheel/transmission.xacro"/>
   <xacro:include filename="$(find adamr2_description)/urdf/caster/caster.xacro"/>
   <xacro:include filename="$(find adamr2_description)/urdf/lidar/lidar.xacro"/>
 
@@ -20,11 +21,15 @@
     <axis xyz="0 1 0"/>
   </xacro:wheel>
 
+  <xacro:wheel_trans prefix="left"/>
+
   <!-- right -->
   <xacro:wheel prefix="right" parent="base_link">
     <origin xyz="0.0 -0.1915 -0.1845"/>
     <axis xyz="0 1 0"/>
   </xacro:wheel>
+
+  <xacro:wheel_trans prefix="right"/>
 
   <!--casters-->
   <!-- back -->
