@@ -5,14 +5,12 @@
 #include <hardware_interface/joint_command_interface.h>
 #include <hardware_interface/joint_state_interface.h>
 #include <hardware_interface/robot_hw.h>
-#include <map>
-#include <string>
-#include <vector>
 
 namespace adamr2 {
   class Adamr2Driver : public hardware_interface::RobotHW {
     public:
       Adamr2Driver();
+      ~Adamr2Driver();
 
       ros::Time getTime() const {
         return ros::Time::now();
@@ -22,6 +20,8 @@ namespace adamr2 {
         return ros::Duration(0.01);
       }
 
+      int open() const;
+      void stop() const;
       void read(ros::Time, ros::Duration);
       void write(ros::Time, ros::Duration);
 
