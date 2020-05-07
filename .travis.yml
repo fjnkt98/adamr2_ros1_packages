@@ -24,7 +24,7 @@ before_install:
   - source /opt/ros/$ROS_DISTRO/setup.bash
   - sudo rosdep init
   - rosdep update
-  - git clone git clone https://github.com/openspur/yp-spur
+  - git clone https://github.com/openspur/yp-spur
   - cd yp-spur
   - mkdir build
   - cd build
