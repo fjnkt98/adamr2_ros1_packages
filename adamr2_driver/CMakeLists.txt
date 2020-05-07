@@ -3,7 +3,6 @@ project(adamr2_driver)
 
 find_package(catkin REQUIRED COMPONENTS
   roscpp
-  std_msgs
   hardware_interface
   transmission_interface
   controller_manager
