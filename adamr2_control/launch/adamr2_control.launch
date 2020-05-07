@@ -16,11 +16,11 @@
           pkg="robot_state_publisher" respawn="false"
           output="screen"/>
     
-    <!--<node name="ypspur_launcher" type="ypspur_launcher.sh"
+    <node name="ypspur_launcher" type="ypspur_launcher.sh"
           pkg="adamr2_control" output="screen"
-          args="$(arg ypspur_params) $(arg ypspur_dev)"/>-->
+          args="$(arg ypspur_params) $(arg ypspur_dev)"/>
 
     <node name="adamr2_driver_node" type="adamr2_driver_node" pkg="adamr2_driver"
-          output="screen"/>
+          output="screen"/>-->
   </group>
 </launch>
