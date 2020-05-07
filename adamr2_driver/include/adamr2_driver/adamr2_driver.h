@@ -20,7 +20,8 @@ namespace adamr2 {
         return ros::Duration(0.01);
       }
 
-      void reopen();
+      int open() const;
+      void stop() const;
       void read(ros::Time, ros::Duration);
       void write(ros::Time, ros::Duration);
 

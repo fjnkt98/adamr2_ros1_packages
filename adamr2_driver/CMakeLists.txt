@@ -11,9 +11,12 @@ find_package(catkin REQUIRED COMPONENTS
 
 catkin_package()
 
+find_library(ypspur_LIBRARIES ypspur)
+
 include_directories(
   include
   ${catkin_INCLUDE_DIRS}
+  ${ypspur_INCLUDE_DIRS}
 )
 
 add_executable(adamr2_driver_node
@@ -23,4 +26,5 @@ add_executable(adamr2_driver_node
 
 target_link_libraries(adamr2_driver_node
   ${catkin_LIBRARIES}
+  ${ypspur_LIBRARIES}
 )
