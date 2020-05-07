@@ -10,6 +10,7 @@ namespace adamr2 {
   class Adamr2Driver : public hardware_interface::RobotHW {
     public:
       Adamr2Driver();
+      ~Adamr2Driver();
 
       ros::Time getTime() const {
         return ros::Time::now();
@@ -19,6 +20,7 @@ namespace adamr2 {
         return ros::Duration(0.01);
       }
 
+      void reopen();
       void read(ros::Time, ros::Duration);
       void write(ros::Time, ros::Duration);
 
