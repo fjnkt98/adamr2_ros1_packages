@@ -24,13 +24,19 @@ before_install:
   - source /opt/ros/$ROS_DISTRO/setup.bash
   - sudo rosdep init
   - rosdep update
+  - git clone git clone https://github.com/openspur/yp-spur
+  - cd yp-spur
+  - mkdir build
+  - cd build
+  - cmake ..
+  - make
+  - sudo make install
+  - sudo ldconfig
 
 install:
   - mkdir -p ~/catkin_ws/src
   - cd ~/catkin_ws
   - catkin init
-  - catkin build
-  - source ~/catkin_ws/devel/setup.bash
   - cd ~/catkin_ws/src
   - ln -s $CI_SOURCE_PATH .
 
