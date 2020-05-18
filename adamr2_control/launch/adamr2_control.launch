@@ -1,7 +1,7 @@
 <launch>
   <arg name="model" default="$(find adamr2_description)/urdf/robot.xacro"/>
   <arg name="ypspur_params" default="$(find adamr2_control)/config/adamr2.param"/>
-  <arg name="ypspur_dev" default="/dev/ttyUSB0"/>
+  <arg name="ypspur_dev" default="/dev/ttyACM0"/>
 
   <param name="robot_description" command="$(find xacro)/xacro --inorder $(arg model)"/>
 
@@ -21,6 +21,6 @@
           args="$(arg ypspur_params) $(arg ypspur_dev)"/>
 
     <node name="adamr2_driver_node" type="adamr2_driver_node" pkg="adamr2_driver"
-          output="screen"/>-->
+          output="screen"/>
   </group>
 </launch>
