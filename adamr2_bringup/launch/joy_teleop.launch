@@ -1,0 +1,17 @@
+<launch>
+  <arg name="ypspur_dev" default="/dev/ttyACM0"/>
+
+  <arg name="joy_config" default="f310"/>
+  <arg name="joy_dev" default="/dev/input/js0"/>
+  <arg name="config_file_path" default="$(find adamr2_bringup)/config/$(arg joy_config).config.yml"/>
+
+  <include file="$(find adamr2_control)/launch/adamr2_control.launch">
+    <arg name="ypspur_dev" value="$(arg ypspur_dev)"/>
+  </include>
+
+  <include file="$(find adamr2_bringup)/launch/sensor/joy.launch">
+    <arg name="joy_config" value="$(arg joy_config)"/>
+    <arg name="joy_dev" value="$(arg joy_dev)"/>
+    <arg name="config_file_path" value="$(arg config_file_path)"/>
+  </include>
+</launch>
