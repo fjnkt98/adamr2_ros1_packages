@@ -7,7 +7,7 @@
   <param name="robot_description" command="$(find xacro)/xacro --inorder $(arg model)"/>
 
   <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false"
-        output="screen" args ="-urdf -model nitic_robot -param robot_description"/>
+        output="screen" args ="-urdf -model adamr2 -param robot_description"/>
 
   <include file="$(find adamr2_control)/launch/adamr2_control_sim.launch"/>
   <include file="$(find adamr2_bringup)/launch/sensor/joy.launch"/>
