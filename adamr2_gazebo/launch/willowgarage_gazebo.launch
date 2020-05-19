@@ -1,0 +1,15 @@
+<launch>
+  <arg name="model" default="$(find adamr2_description)/urdf/robot_sim.xacro"/>
+  <arg name="rvizconfig" default="$(find adamr2_gazebo)/config/empty_teleop.rviz" />
+
+  <include file="$(find gazebo_ros)/launch/willowgarage_world.launch"/>
+
+  <param name="robot_description" command="$(find xacro)/xacro --inorder $(arg model)"/>
+
+  <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false"
+        output="screen" args ="-urdf -model nitic_robot -param robot_description"/>
+
+  <include file="$(find adamr2_control)/launch/adamr2_control_sim.launch"/>
+  <include file="$(find adamr2_bringup)/launch/sensor/joy.launch"/>
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" required="true"/>
+</launch>
