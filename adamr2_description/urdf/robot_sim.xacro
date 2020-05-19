@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<robot name="adamr2" xmlns:xacro="http://ros.org/wiki/xacro">
+  <xacro:include filename="$(find adamr2_description)/urdf/base/base.xacro"/>
+  <xacro:include filename="$(find adamr2_description)/urdf/base/base.gazebo.xacro"/>
+  <xacro:include filename="$(find adamr2_description)/urdf/wheel/wheel.xacro"/>
+  <xacro:include filename="$(find adamr2_description)/urdf/wheel/wheel.gazebo.xacro"/>
+  <xacro:include filename="$(find adamr2_description)/urdf/wheel/transmission.xacro"/>
+  <xacro:include filename="$(find adamr2_description)/urdf/caster/caster.xacro"/>
+  <xacro:include filename="$(find adamr2_description)/urdf/caster/caster.gazebo.xacro"/>
+  <xacro:include filename="$(find adamr2_description)/urdf/lidar/lidar.xacro"/>
+
+  <!-- base_footprint -->
+  <link name="base_footprint"/>
+
+  <!-- base_link -->
+  <xacro:base parent="base_footprint">
+    <origin xyz="0.0 0.0 0.262"/>
+  </xacro:base>
+  <xacro:base_gazebo/>
+
+  <!--wheels-->
+  <!-- left -->
+  <xacro:wheel prefix="left" parent="base_link">
+    <origin xyz="0.0 0.1915 -0.1845"/>
+    <axis xyz="0 1 0"/>
+  </xacro:wheel>
+
+  <xacro:wheel_trans prefix="left"/>
+  <xacro:wheel_gazebo prefix="left"/>
+
+  <!-- right -->
+  <xacro:wheel prefix="right" parent="base_link">
+    <origin xyz="0.0 -0.1915 -0.1845"/>
+    <axis xyz="0 1 0"/>
+  </xacro:wheel>
+
+  <xacro:wheel_trans prefix="right"/>
+  <xacro:wheel_gazebo prefix="right"/>
+
+  <!--casters-->
+  <!-- back -->
+  <xacro:caster prefix="back" parent="base_link">
+    <origin xyz="-0.275 0.0 -0.1498"/>
+    <axis xyz="0 0 1"/>
+  </xacro:caster>
+  <xacro:caster_gazebo prefix="back"/>
+
+  <!-- front -->
+  <xacro:caster prefix="front" parent="base_link">
+    <origin xyz="0.275 0.0 -0.1498" rpy="0 0 ${radians(180)}"/>
+    <axis xyz="0 0 1"/>
+  </xacro:caster>
+  <xacro:caster_gazebo prefix="front"/>
+
+  <!-- lidar -->
+  <xacro:lidar parent="base_link">
+    <origin xyz="0.275 0 0.177" rpy="0 0 ${radians(180)}"/>
+  </xacro:lidar>
+
+  <!-- Gazebo Plugin -->
+  <gazebo>
+    <plugin name="libgazebo_ros_control" filename="libgazebo_ros_control.so">
+      <robotNamespace>/adamr2</robotNamespace>
+      <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+      <legacyModeNS>true</legacyModeNS>
+    </plugin>
+
+    <plugin name="joint_state_publisher" 
+            filename="libgazebo_ros_joint_state_publisher.so">
+      <jointName>front_caster_support_joint, front_caster_wheel_joint, back_caster_support_joint, back_caster_wheel_joint</jointName>
+    </plugin>
+  </gazebo>
+</robot>
