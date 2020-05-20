@@ -17,6 +17,7 @@ adamr2:
     cmd_vel_timeout: 0.5
 
     base_frame_id: base_footprint
+    odom_frame_id: odom
 
     linear:
       x:
@@ -30,6 +31,8 @@ adamr2:
     angular:
       z:
         has_velocity_limits: true
-        max_velocity: 1.0
+        max_velocity: 1.57
+        min_velocity: -1.57
         has_acceleration_limits: true
-        max_acceleration: 1.0
+        max_acceleration: 1.57
+        min_acceleration: -1.57
