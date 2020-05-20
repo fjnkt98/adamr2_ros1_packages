@@ -71,5 +71,12 @@
       <robotNamespace>/adamr2</robotNamespace>
       <jointName>front_caster_support_joint, front_caster_wheel_joint, back_caster_support_joint, back_caster_wheel_joint</jointName>
     </plugin>
+
+    <plugin name="ground_truth" filename="libgazebo_ros_p3d.so">
+      <frameName>world</frameName>
+      <bodyName>base_footprint</bodyName>
+      <topicName>/tracker</topicName>
+      <updateRate>10.0</updateRate>
+    </plugin>
   </gazebo>
 </robot>
