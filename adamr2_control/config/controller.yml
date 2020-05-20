@@ -16,6 +16,8 @@ adamr2:
     wheel_radius: 0.0775
     cmd_vel_timeout: 0.5
 
+    wheel_separation_multiplier: 1.0636
+
     base_frame_id: base_footprint
     odom_frame_id: odom
 
