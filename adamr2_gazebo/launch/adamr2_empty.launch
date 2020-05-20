@@ -1,6 +1,5 @@
 <launch>
   <arg name="model" default="$(find adamr2_description)/urdf/robot_sim.xacro"/>
-  <arg name="rvizconfig" default="$(find adamr2_gazebo)/config/empty_teleop.rviz" />
 
   <include file="$(find gazebo_ros)/launch/empty_world.launch"/>
 
@@ -10,6 +9,4 @@
         output="screen" args ="-urdf -model adamr2 -param robot_description"/>
 
   <include file="$(find adamr2_control)/launch/adamr2_control_sim.launch"/>
-  <include file="$(find adamr2_bringup)/launch/sensor/joy.launch"/>
-  <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" required="true"/>
 </launch>
