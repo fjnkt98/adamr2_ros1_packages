@@ -1,0 +1,5 @@
+<launch>
+  <node pkg="amcl" type="amcl" name="amcl" output="screen">
+    <rosparam file="$(find adamr2_navigation)/config/amcl/amcl_diff.yml" command="load" />
+  </node>
+</launch>
