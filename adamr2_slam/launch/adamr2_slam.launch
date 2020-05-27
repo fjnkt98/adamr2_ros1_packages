@@ -1,8 +1,17 @@
 <launch>
+  <arg name="rvizconfig" default="$(find adamr2_description)/config/urdf.rviz" />
+
   <node pkg="gmapping" type="slam_gmapping" name="slam_gmapping" clear_params="true">
-    <rosparam command="load" file="$(find adamr2_slam)/config/gmapping.yml" />
+    <param name="map_update_interval" value="1.0"/>
+    <param name="temporalUpdate" value="0.5"/>
+    <param name="xmin" value="-10.0"/>
+    <param name="xmax" value="10"/>
+    <param name="ymin" value="-10.0"/>
+    <param name="ymax" value="10.0"/>
     <param name="base_frame" value="base_footprint" />
     <param name="odom_frame" value="odom" />
     <param name="map_frame"  value="map" />
   </node>
+
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" required="true"/>
 </launch>
