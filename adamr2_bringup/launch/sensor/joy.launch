@@ -4,12 +4,14 @@
   <arg name="config_file_path" default="$(find adamr2_bringup)/config/$(arg joy_config).config.yml"/>
 
   <group ns="/adamr2/diff_drive_controller">
+      <!-- joy node -->
       <node pkg="joy" type="joy_node" name="joy_node">
         <param name="dev" value="$(arg joy_dev)" />
         <param name="deadzone" value="0.3" />
         <param name="autorepeat_rate" value="20" />
       </node>
 
+      <!-- teleop_twist_joy node -->
       <node pkg="teleop_twist_joy" name="teleop_twist_joy" type="teleop_node">
         <rosparam command="load" file="$(arg config_file_path)"/>
       </node>
