@@ -1,5 +1,5 @@
 <launch>
-  <arg name="rvizconfig" default="$(find adamr2_description)/config/urdf.rviz" />
+  <arg name="rvizconfig" default="$(find adamr2_slam)/rviz/gmapping.rviz" />
 
   <node pkg="gmapping" type="slam_gmapping" name="slam_gmapping" clear_params="true">
     <param name="map_update_interval" value="1.0"/>
