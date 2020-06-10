@@ -19,9 +19,9 @@
       </visual>
 
       <inertial>
-        <origin xyz="0.0 0.0 0.0"/>
-        <mass value="22.68"/>
-        <inertia ixx="0.39" ixy="0.04" ixz="0.0" iyy="0.64" iyz="0.02" izz="0.70"/>
+        <origin xyz="-0.02926 0.0 -0.05722"/>
+        <mass value="23.67"/>
+        <inertia ixx="0.43649" ixy="7.4638e-6" ixz="0.03632" iyy="0.73647" iyz="-8.65696e-6" izz="0.66577"/>
       </inertial>
 
       <collision>
