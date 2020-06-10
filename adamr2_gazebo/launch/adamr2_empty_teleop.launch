@@ -1,6 +1,6 @@
 <launch>
   <arg name="model" default="$(find adamr2_description)/urdf/robot_sim.xacro"/>
-  <arg name="rvizconfig" default="$(find adamr2_gazebo)/config/empty_teleop.rviz" />
+  <arg name="rvizconfig" default="$(find adamr2_gazebo)/rviz/empty_teleop.rviz" />
 
   <include file="$(find adamr2_gazebo)/launch/adamr2_empty.launch">
     <arg name="model" value="$(arg model)"/>
