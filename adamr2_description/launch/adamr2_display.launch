@@ -2,7 +2,7 @@
 
 <launch>
   <arg name="model" default="$(find adamr2_description)/urdf/robot.xacro"/>
-  <arg name="rvizconfig" default="$(find adamr2_description)/config/urdf.rviz" />
+  <arg name="rvizconfig" default="$(find adamr2_description)/rviz/urdf.rviz" />
 
   <param name="robot_description" command="$(find xacro)/xacro --inorder $(arg model)" />
 
