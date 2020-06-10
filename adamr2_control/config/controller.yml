@@ -9,14 +9,14 @@ adamr2:
     right_wheel: 'right_wheel_joint'
     publish_rate: 50
 
-    pose_covariance_diagonal: [0.001, 0.001, 1000000.0, 1000000.0, 1000000.0, 1000.0]
-    twist_covariance_diagonal: [0.001, 0.001, 1000000.0, 1000000.0, 1000000.0, 1000.0]
+    pose_covariance_diagonal: [0.001, 0.001, 1000000.0, 1000000.0, 1000000.0, 10.0]
+    twist_covariance_diagonal: [0.001, 0.001, 1000000.0, 1000000.0, 1000000.0, 10.0]
 
     wheel_separation: 0.383
     wheel_radius: 0.0775
     cmd_vel_timeout: 0.5
 
-    wheel_separation_multiplier: 1.0636
+    #wheel_separation_multiplier: 1.0636
 
     base_frame_id: base_footprint
     odom_frame_id: odom
