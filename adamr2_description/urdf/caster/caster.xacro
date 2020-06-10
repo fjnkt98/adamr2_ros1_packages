@@ -12,7 +12,7 @@
       <visual>
         <origin rpy="0.0 0.0 0.0"/>
         <geometry>
-          <mesh filename="package://adamr2_description/meshes/caster_link.STL"/>
+          <mesh filename="package://adamr2_description/meshes/caster_support_link.STL"/>
         </geometry>
         <material name="red">
           <color rgba="0.0 0.0 0.0 1.0"/>
@@ -34,6 +34,16 @@
     </joint>
 
     <link name="${prefix}_caster_wheel_link">
+      <visual>
+        <origin rpy="0.0 0.0 0.0"/>
+        <geometry>
+          <mesh filename="package://adamr2_description/meshes/caster_wheel_link.STL"/>
+        </geometry>
+        <material name="red">
+          <color rgba="0.0 0.0 0.0 1.0"/>
+        </material>
+      </visual>
+
       <inertial>
         <origin xyz="0.0 0.0 0.0"/>
         <mass value="0.17"/>
