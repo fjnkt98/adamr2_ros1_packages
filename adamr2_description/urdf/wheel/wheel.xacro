@@ -26,9 +26,9 @@
       </inertial>
 
       <collision>
-        <origin xyz="0.0 0.0 0.0"/>
+        <origin xyz="0.0 0.0 0.0" rpy="${radians(90)} 0.0 0.0"/>
         <geometry>
-          <mesh filename="package://adamr2_description/meshes/wheel_link.STL"/>
+          <cylinder radius="0.0775" length="0.030"/>
         </geometry>
       </collision>
     </link>
