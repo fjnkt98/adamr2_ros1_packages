@@ -17,4 +17,4 @@ cd exp$((TITLE_NUM))
 mkdir bag
 cd bag
 
-rosbag record -O slam_bag /tf /tf_static /odom /scan __name:=slam_bagger
+rosbag record -O slam_bag /tf /tf_static /clock /scan __name:=slam_bagger
