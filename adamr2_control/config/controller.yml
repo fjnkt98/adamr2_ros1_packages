@@ -22,17 +22,17 @@ adamr2:
     linear:
       x:
         has_velocity_limits: true
-        max_velocity: 1.6
-        min_velocity: -1.6
+        max_velocity: 0.5
+        min_velocity: -0.5
         has_acceleration_limits: true
-        max_acceleration: 0.8
-        min_acceleration: -0.8
+        max_acceleration: 0.25
+        min_acceleration: -0.25
       
     angular:
       z:
         has_velocity_limits: true
-        max_velocity: 1.57
-        min_velocity: -1.57
+        max_velocity: 0.785
+        min_velocity: -0.785
         has_acceleration_limits: true
-        max_acceleration: 1.57
-        min_acceleration: -1.57
+        max_acceleration: 0.785
+        min_acceleration: -0.785
