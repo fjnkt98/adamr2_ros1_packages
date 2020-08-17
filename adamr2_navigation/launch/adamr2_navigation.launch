@@ -2,7 +2,7 @@
   <!-- MAP SERVER -->
   <arg name="map_file" default="$(env HOME)/experiment_map/large_map/map.yaml"/>
   <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)">
-    <param name="frame_id" value="/map" />
+    <param name="frame_id" value="map" />
   </node>
 
   <!-- AMCL -->
@@ -11,10 +11,8 @@
   <!-- MOVE BASE -->
   <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
     <!-- COST MAP -->
-    <rosparam file="$(find adamr2_navigation)/config/costmap/costmap_common.yml" command="load" ns="global_costmap" />
-    <rosparam file="$(find adamr2_navigation)/config/costmap/costmap_common.yml" command="load" ns="local_costmap" />
-    <rosparam file="$(find adamr2_navigation)/config/costmap/local_costmap.yml" command="load" />
-    <rosparam file="$(find adamr2_navigation)/config/costmap/global_costmap.yml" command="load" />
+    <rosparam file="$(find adamr2_navigation)/config/costmap/costmap_local.yml"/>
+    <rosparam file="$(find adamr2_navigation)/config/costmap/costmap_global.yml"/>
 
     <!-- BASE GLOBAL PLANNER -->
     <rosparam file="$(find adamr2_navigation)/config/planner/global/navfn_planner.yml" command="load" />
