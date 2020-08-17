@@ -11,8 +11,8 @@
   <!-- MOVE BASE -->
   <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
     <!-- COST MAP -->
-    <rosparam file="$(find adamr2_navigation)/config/costmap/costmap_local.yml"/>
-    <rosparam file="$(find adamr2_navigation)/config/costmap/costmap_global.yml"/>
+    <rosparam file="$(find adamr2_navigation)/config/costmap/local_costmap.yml"/>
+    <rosparam file="$(find adamr2_navigation)/config/costmap/global_costmap.yml"/>
 
     <!-- BASE GLOBAL PLANNER -->
     <rosparam file="$(find adamr2_navigation)/config/planner/global/navfn_planner.yml" command="load" />
