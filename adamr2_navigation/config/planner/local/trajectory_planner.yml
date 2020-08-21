@@ -28,8 +28,8 @@ TrajectoryPlannerROS:
 
   # Trajectory Scoring Parameters
   meter_scoring: false          # default: false
-  pdist_scale: 0.6              # default: 0.6
-  gdist_scale: 0.8              # default: 0.8
+  path_distance_bias: 0.6              # default: 0.6
+  goal_distance_bias: 0.8              # default: 0.8
   occdist_scale: 0.01           # default: 0.01
   heading_lookahead: 0.325      # default: 0.325
   heading_scoring: false        # default: false
