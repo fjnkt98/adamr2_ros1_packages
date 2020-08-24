@@ -5,11 +5,11 @@ TrajectoryPlannerROS:
   acc_lim_theta: 1.0    # default: 3.2
 
   max_vel_x: 0.8        # default: 0.5
-  min_vel_x: -0.8       # default: 0.1
+  min_vel_x: 0.2       # default: 0.1
   max_vel_theta: 1.0    # default: 1.0
   min_vel_theta: -1.0   # default: -1.0
   min_in_place_vel_theta: 1.0 # default: 0.4
-  escape_vel: -0.1      # default: -0.1
+  escape_vel: -0.5      # default: -0.1
 
   holonomic_robot: false  # default: true
 
@@ -19,20 +19,20 @@ TrajectoryPlannerROS:
   latch_xy_goal_tolerance: true # default: false
 
   # Forward Simulation Parameters
-  sim_time: 1.0                     # default: 1.0
-  sim_granularity: 0.025            # default: 0.025
-  angular_sim_granularity: 0.025    # default: 0.025
-  vx_samples: 3                     # default: 3
-  vtheta_samples: 20               # default: 20
-  controller_frequency: 20.0        # default: 20.0
+  sim_time: 4.0                     # default: 1.0
+  sim_granularity: 0.050            # default: 0.025
+  angular_sim_granularity: 0.050    # default: 0.025
+  vx_samples: 20                    # default: 3
+  vtheta_samples: 40                # default: 20
+  controller_frequency: 10.0        # default: 20.0
 
   # Trajectory Scoring Parameters
-  meter_scoring: false          # default: false
-  path_distance_bias: 0.6              # default: 0.6
-  goal_distance_bias: 0.8              # default: 0.8
+  meter_scoring: true           # default: false
+  path_distance_bias: 0.6       # default: 0.6
+  goal_distance_bias: 0.8       # default: 0.8
   occdist_scale: 0.01           # default: 0.01
   heading_lookahead: 0.325      # default: 0.325
-  heading_scoring: false        # default: false
+  heading_scoring: true         # default: false
   heading_scoring_timestep: 0.8 # default: 0.8
   dwa: true                     # default: true
   publish_cost_grid_pc: false   # default: false
