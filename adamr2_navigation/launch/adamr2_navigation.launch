@@ -1,5 +1,5 @@
 <launch>
-  <!-- ARGS -->
+  <!-- Arguments for each nodes -->
   <arg name="frame_id" default="map"/>
   <arg name="map_file" default="$(env HOME)/experiment_map/large_map/map.yaml"/>
 
@@ -31,5 +31,6 @@
     <arg name="move_base_param_file"      value="$(arg move_base_param_file)"/>
   </include>
 
+  <!-- Rviz -->
   <node name="rviz" pkg="rviz" type="rviz" required="true" args="-d $(find adamr2_navigation)/rviz/navigation.rviz" />
 </launch>
