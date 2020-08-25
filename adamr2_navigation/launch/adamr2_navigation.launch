@@ -17,16 +17,15 @@
     <!-- BASE GLOBAL PLANNER -->
     <rosparam file="$(find adamr2_navigation)/config/planner/global/navfn_planner.yml" command="load" />
     <!-- BASE LOCAL PLANNER -->
-    <rosparam file="$(find adamr2_navigation)/config/planner/local/trajectory_planner.yml" command="load" />
-    <!-- RECOVERY -->
-    <rosparam file="$(find adamr2_navigation)/config/planner/recovery_behaviors.yml" command="load"/>
+    <rosparam file="$(find adamr2_navigation)/config/planner/local/dwa_local_planner.yml" command="load" />
 
     <!-- MOVE BASE -->
-    <param name="controller_frequency" value="5.0" />
-    <param name="controller_patience" value="15.0" />
+    <param name="controller_frequency" value="10.0" />
+    <!--<param name="controller_patience" value="15.0" />
     <param name="max_planning_retries" value="10" />
     <param name="oscillation_timeout" value="10.0" />
     <param name="clearing_rotation_allowed" value="true" />
+    <param name="recovery_behavior_enabled" value="false"/>-->
 
     <!-- remap cmd_vel topic for gazebo -->
     <remap from="cmd_vel" to="/adamr2/diff_drive_controller/cmd_vel"/>
