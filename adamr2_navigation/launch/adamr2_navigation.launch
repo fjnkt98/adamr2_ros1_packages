@@ -17,7 +17,7 @@
     <!-- BASE GLOBAL PLANNER -->
     <rosparam file="$(find adamr2_navigation)/config/planner/global/navfn_planner.yml" command="load" />
     <!-- BASE LOCAL PLANNER -->
-    <rosparam file="$(find adamr2_navigation)/config/planner/local/dwa_local_planner.yml" command="load" />
+    <rosparam file="$(find adamr2_navigation)/config/planner/local/trajectory_planner.yml" command="load" />
 
     <!-- MOVE BASE -->
     <param name="controller_frequency" value="10.0" />
