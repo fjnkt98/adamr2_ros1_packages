@@ -1,14 +1,7 @@
 <launch>
-  <!-- MAP SERVER -->
-  <arg name="map_file" default="$(env HOME)/experiment_map/large_map/map.yaml"/>
-  <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)">
-    <param name="frame_id" value="map" />
-  </node>
-
+  <arg name="amcl_param_file" default="$(find adamr2_navigation)/config/amcl/amcl.yml"/>
   <!-- amcl -->
   <node pkg="amcl" type="amcl" name="amcl" output="screen">
-    <rosparam file="$(find adamr2_navigation)/config/amcl/amcl_diff.yml" command="load" />
+    <rosparam file="$(arg amcl_param_file)" command="load" />
   </node>
-
-  <node name="rviz" pkg="rviz" type="rviz" required="true" args="-d $(find adamr2_navigation)/rviz/navigation.rviz" />
 </launch>
