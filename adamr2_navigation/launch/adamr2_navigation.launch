@@ -27,8 +27,9 @@
     <param name="clearing_rotation_allowed" value="true" />
     <param name="recovery_behavior_enabled" value="false"/>-->
 
-    <!-- remap cmd_vel topic for gazebo -->
+    <!-- remap topic name for adamr2 -->
     <remap from="cmd_vel" to="/adamr2/diff_drive_controller/cmd_vel"/>
+    <remap from="odom" to="/adamr2/diff_drive_controller/odom"/>
   </node>
 
   <node name="rviz" pkg="rviz" type="rviz" required="true" args="-d $(find adamr2_navigation)/rviz/navigation.rviz" />
