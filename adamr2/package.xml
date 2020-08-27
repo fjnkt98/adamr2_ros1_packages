@@ -10,9 +10,12 @@
 
   <buildtool_depend>catkin</buildtool_depend>
   <exec_depend>adamr2_bringup</exec_depend>
-  <exec_depend>adamr2_description</exec_depend>
   <exec_depend>adamr2_control</exec_depend>
+  <exec_depend>adamr2_description</exec_depend>
   <exec_depend>adamr2_driver</exec_depend>
+  <exec_depend>adamr2_gazebo</exec_depend>
+  <exec_depend>adamr2_navigation</exec_depend>
+  <exec_depend>adamr2_slam</exec_depend>
 
   <export>
     <metapackage/>
