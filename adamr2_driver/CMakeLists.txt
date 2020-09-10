@@ -21,6 +21,7 @@ include_directories(
 add_executable(adamr2_driver_node
   src/adamr2_driver_node.cpp
   src/adamr2_driver.cpp
+  src/ypspur_launcher.cpp
 )
 
 target_link_libraries(adamr2_driver_node
