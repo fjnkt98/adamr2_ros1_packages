@@ -9,7 +9,7 @@ axis_angular: 0
 #scale_angular_turbo: 0.785
 
 scale_angular: 1.57
-scale_angular_turbl: 3.14
+scale_angular_turbo: 3.14
 
 enable_button: 1
 enable_turbo_button: 2
