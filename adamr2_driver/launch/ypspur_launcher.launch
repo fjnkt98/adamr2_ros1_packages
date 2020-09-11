@@ -1,0 +1,11 @@
+<launch>
+  <arg name="ypspur_bin" default="/usr/local/bin/ypspur-coordinator"/>
+  <arg name="param_file" default="$(find adamr2_control)/config/adamr2.param"/>
+  <arg name="device_path" default="/dev/ttyACM0"/>
+
+  <node name="ypspur_launcher_node" type="ypspur_launcher_node" pkg="adamr2_driver" output="screen">
+    <param name="ypspur_bin" value="$(arg ypspur_bin)"/>
+    <param name="param_file" value="$(arg param_file)"/>
+    <param name="device_path" value="$(arg device_path)"/>
+  </node>
+</launch>

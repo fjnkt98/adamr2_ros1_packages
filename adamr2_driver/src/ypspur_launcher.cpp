@@ -1,6 +1,8 @@
+#include <string>
 #include <cerrno>
 #include <cstring>
 #include <exception>
+#include <stdexcept>
 
 #include <ros/ros.h>
 #include <ypspur.h>
@@ -15,7 +17,13 @@ extern "C" {
 #include "adamr2_driver/ypspur_launcher.h"
 
 namespace adamr2 {
-  YPSpurLauncher::YPSpurLauncher() {
+  YPSpurLauncher::YPSpurLauncher()
+  : pnh_("~") 
+  {
+    pnh_.param("ypspur_bin", ypspur_bin_, std::string("ypspur-coordinator"));
+    pnh_.param("param_file", param_file_, std::string(""));
+    pnh_.param("device_path", device_path_, std::string("/dev/ttyACM0"));
+
     try {
       this->launch();
     }
@@ -36,22 +44,33 @@ namespace adamr2 {
     if (pid_ < 0) {
       const int err = errno;
       throw(std::runtime_error(std::string("failed to fork process: ") + std::strerror(err)));
-    } else if (pid_ = 0) {
-      //execlp();
+    } else if (pid_ == 0) {
+      execlp(ypspur_bin_.c_str(), ypspur_bin_.c_str(), "-p", param_file_.c_str(), "-d", device_path_.c_str(), NULL);
       throw(std::runtime_error("failed to start ypspur-coordinator."));
     }
   }
 
   void YPSpurLauncher::terminate() {
     ROS_INFO("Killing ypspur-coordinator: (%d)", static_cast<int>(pid_));
+
     kill(pid_, SIGINT);
+    
     int status = 0;
-    waitpid(pid_, &status, 0);
-    ROS_INFO("ypspur-coordinator is killed. (status: %d)", status);
+    pid_t result = waitpid(pid_, &status, 0);
+
+    if (result < 0) {
+      throw(std::runtime_error("failed to terminate subprocess"));
+    }
+
+    if (WIFEXITED(status)) {
+      ROS_INFO("ypspur-coordinator is exited with code: %d)", WEXITSTATUS(status));
+    } else {
+      ROS_INFO("ypspur-coordinator is terminated with status: %d)", static_cast<int>(status));
+    }
   }
 
   void YPSpurLauncher::relaunch() {
-    if (!this->procesIsAlive()) {
+    if (!this->processIsAlive()) {
       this->terminate();
       this->launch();
     }

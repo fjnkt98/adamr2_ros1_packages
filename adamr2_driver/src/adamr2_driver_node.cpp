@@ -1,5 +1,5 @@
 #include "adamr2_driver/adamr2_driver.h"
-#include "adamr2_driver/ypspur_launcher.h"
+//#include "adamr2_driver/ypspur_launcher.h"
 #include <ros/ros.h>
 #include <controller_manager/controller_manager.h>
 
