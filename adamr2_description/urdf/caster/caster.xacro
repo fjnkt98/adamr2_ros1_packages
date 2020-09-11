@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
   <xacro:macro name="caster" params="prefix parent *joint_origin *joint_axis">
-    <joint name="${prefix}_caster_support_joint" type="continuous">
+    <joint name="${prefix}_caster_support_joint" type="fixed">
       <xacro:insert_block name="joint_origin"/>
       <parent link="${parent}"/>
       <child link="${prefix}_caster_support_link"/>
@@ -26,7 +26,7 @@
       </inertial>
     </link>
 
-    <joint name="${prefix}_caster_wheel_joint" type="continuous">
+    <joint name="${prefix}_caster_wheel_joint" type="fixed">
       <origin xyz="-0.030 0.0 -0.072" rpy="0.0 0.0 0.0"/>
       <parent link="${prefix}_caster_support_link"/>
       <child link="${prefix}_caster_wheel_link"/>
