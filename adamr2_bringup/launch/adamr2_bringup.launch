@@ -1,0 +1,29 @@
+<launch>
+  <!-- Arguments for hardware controller-->
+  <arg name="model" default="$(find adamr2_description)/urdf/robot.xacro"/>
+  <arg name="ypspur_params" default="$(find adamr2_control)/config/adamr2.param"/>
+  <arg name="ypspur_dev" default="/dev/ttyACM0"/>
+
+  <!-- Arguments for RPLiDAR A2-->
+  <arg name="device"   default="/dev/ttyUSB0"/>
+  <arg name="baudrate" default="115200"/>
+  <arg name="frame_id" default="lidar_link"/>
+  <arg name="inverted" default="false"/>
+  <arg name="angle_compensate" default="true"/>
+
+  <!-- Hardware Controller -->
+  <include file="$(find adamr2_control)/launch/adamr2_control.launch">
+    <arg name="model" value="$(arg model)"/>
+    <arg name="ypspur_params" value="$(arg ypspur_params)"/>
+    <arg name="ypspur_dev" value="$(arg ypspur_dev)"/>
+  </include>
+
+  <!-- LiDAR -->
+  <include file="$(find adamr2_bringup)/launch/sensor/rplidar_a2.launch">
+    <arg name="device" value="$(arg device)"/>
+    <arg name="baudrate" value="$(arg baudrate)"/>
+    <arg name="frame_id" value="$(arg frame_id)"/>
+    <arg name="inverted" value="$(arg inverted)"/>
+    <arg name="angle_compensate" value="$(arg angle_compensate)"/>
+  </include>
+</launch>
