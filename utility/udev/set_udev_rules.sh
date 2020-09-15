@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 
 echo "Bring up the usb devices connection..."
 
