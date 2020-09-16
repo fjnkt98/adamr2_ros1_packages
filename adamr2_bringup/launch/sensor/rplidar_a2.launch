@@ -1,5 +1,5 @@
 <launch>
-  <arg name="device"   default="/dev/ttyUSB0"/>
+  <arg name="device"   default="/dev/rplidar"/>
   <arg name="baudrate" default="115200"/>
   <arg name="frame_id" default="lidar_link"/>
   <arg name="inverted" default="false"/>
