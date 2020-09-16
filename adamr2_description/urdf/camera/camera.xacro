@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+  <xacro:macro name="camera" params="parent *joint_origin">
+    <joint name="camera_joint" type="fixed">
+      <xacro:insert_block name="joint_origin"/>
+      <parent link="${parent}"/>
+      <child link="camera_link"/>
+    </joint>
+
+    <link name="camera_link">
+      <visual>
+        <origin xyz="0.0 0.0175 0.0"/>
+        
+        <geometry>
+          <mesh filename="package://adamr2_description/meshes/camera_link.STL"/>
+        </geometry>
+        <material name="blue">
+          <color rgba="0.0 0.0 1.0 1.0"/>
+        </material>
+      </visual>
+    </link>
+  </xacro:macro>
+</robot>
