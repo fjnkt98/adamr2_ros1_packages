@@ -2,10 +2,10 @@
   <!-- Arguments for hardware controller-->
   <arg name="model" default="$(find adamr2_description)/urdf/robot.xacro"/>
   <arg name="ypspur_params" default="$(find adamr2_control)/config/adamr2.param"/>
-  <arg name="ypspur_dev" default="/dev/ttyACM0"/>
+  <arg name="ypspur_dev" default="/dev/tfrog-driver"/>
 
   <!-- Arguments for RPLiDAR A2-->
-  <arg name="device"   default="/dev/ttyUSB0"/>
+  <arg name="device"   default="/dev/rplidar"/>
   <arg name="baudrate" default="115200"/>
   <arg name="frame_id" default="lidar_link"/>
   <arg name="inverted" default="false"/>
@@ -26,4 +26,7 @@
     <arg name="inverted" value="$(arg inverted)"/>
     <arg name="angle_compensate" value="$(arg angle_compensate)"/>
   </include>
+
+  <!-- Realsense d435 -->
+  <include file="$(find adamr2_bringup)/launch/sensor/realsense.launch"/>
 </launch>
