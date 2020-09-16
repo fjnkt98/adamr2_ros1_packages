@@ -5,7 +5,7 @@
   <include file="$(find gazebo_ros)/launch/willowgarage_world.launch"/>
 
   <!-- Register the urdf to robot_description parameter -->
-  <param name="robot_description" command="$(find xacro)/xacro --inorder $(arg model)"/>
+  <param name="robot_description" command="$(find xacro)/xacro $(arg model)"/>
 
   <!-- Spawn the robot model to empty world -->
   <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false"
