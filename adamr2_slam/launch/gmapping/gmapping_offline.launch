@@ -4,9 +4,12 @@
 
   <param name="robot_description" command="$(find xacro)/xacro $(arg model)"/>
   
-  <node pkg="gmapping" type="slam_gmapping" name="slam_gmapping" clear_params="true" output="screen">
-    <rosparam file="$(find adamr2_slam)/config/gmapping/gmapping.yml" command="load"/>
-  </node>
+  <group ns="/adamr2">
+    <node pkg="gmapping" type="slam_gmapping" name="slam_gmapping" clear_params="true" output="screen">
+      <rosparam file="$(find adamr2_slam)/config/gmapping/gmapping.yml" command="load"/>
+      <remap from="scan" to="/adamr2/scan"/>
+    </node>
+  </group>
 
   <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" required="true"/>
 </launch>
