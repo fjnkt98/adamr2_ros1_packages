@@ -1,12 +1,10 @@
 <launch>
   <arg name="rvizconfig" default="$(find adamr2_slam)/rviz/gmapping.rviz" />
 
-  <group ns="/adamr2">
-    <node pkg="gmapping" type="slam_gmapping" name="slam_gmapping" clear_params="true">
-      <rosparam file="$(find adamr2_slam)/config/gmapping/gmapping.yml" command="load"/>
-      <remap from="scan" to="/adamr2/scan"/>
-    </node>
-  </group>
+  <node pkg="gmapping" type="slam_gmapping" name="slam_gmapping" clear_params="true">
+    <rosparam file="$(find adamr2_slam)/config/gmapping/gmapping.yml" command="load"/>
+    <remap from="scan" to="/adamr2/scan"/>
+  </node>
 
   <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" required="true"/>
 </launch>
