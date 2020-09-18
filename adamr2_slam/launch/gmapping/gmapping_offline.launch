@@ -6,6 +6,7 @@
   
   <node pkg="gmapping" type="slam_gmapping" name="slam_gmapping" clear_params="true" output="screen">
     <rosparam file="$(find adamr2_slam)/config/gmapping/gmapping.yml" command="load"/>
+    <remap from="scan" to="/adamr2/scan"/>
   </node>
 
   <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" required="true"/>
