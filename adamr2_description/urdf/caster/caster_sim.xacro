@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+  <xacro:macro name="caster" params="prefix parent *joint_origin *joint_axis">
+    <joint name="${prefix}_caster_support_joint" type="continuous">
+      <xacro:insert_block name="joint_origin"/>
+      <parent link="${parent}"/>
+      <child link="${prefix}_caster_support_link"/>
+      <xacro:insert_block name="joint_axis"/>
+    </joint>
+    
+    <link name="${prefix}_caster_support_link">
+      <visual>
+        <origin rpy="0.0 0.0 0.0"/>
+        <geometry>
+          <mesh filename="package://adamr2_description/meshes/caster_support_link.STL"/>
+        </geometry>
+        <material name="red">
+          <color rgba="0.0 0.0 0.0 1.0"/>
+        </material>
+      </visual>
+
+      <inertial>
+        <origin xyz="6.7e-4 0.0 -0.02699"/>
+        <mass value="0.3"/>
+        <inertia ixx="4.6263e-4" ixy="-2.12e-9" ixz="5.9561e-5" iyy="5.145e-4" iyz="7.11e-9" izz="2.0407e-4"/>
+      </inertial>
+    </link>
+
+    <joint name="${prefix}_caster_wheel_joint" type="continuous">
+      <origin xyz="-0.030 0.0 -0.072" rpy="0.0 0.0 0.0"/>
+      <parent link="${prefix}_caster_support_link"/>
+      <child link="${prefix}_caster_wheel_link"/>
+      <axis xyz="0.0 1 0.0"/>
+    </joint>
+
+    <link name="${prefix}_caster_wheel_link">
+      <visual>
+        <origin rpy="0.0 0.0 0.0"/>
+        <geometry>
+          <mesh filename="package://adamr2_description/meshes/caster_wheel_link.STL"/>
+        </geometry>
+        <material name="red">
+          <color rgba="0.0 0.0 0.0 1.0"/>
+        </material>
+      </visual>
+
+      <inertial>
+        <origin xyz="0.0 0.0 0.0"/>
+        <mass value="0.17"/>
+        <inertia ixx="6.9281e-5" ixy="0.0" ixz="0.0" iyy="1.0773e-4" iyz="0.0" izz="6.9281e-5"/>
+      </inertial>
+
+      <collision>
+        <origin xyz="0.0 0.0 0.0" rpy="${radians(90)} 0.0 0.0"/>
+        <geometry>
+          <cylinder radius="0.0375" length="0.025"/>
+        </geometry>
+      </collision>
+    </link>
+  </xacro:macro>
+</robot>

@@ -1,9 +1,9 @@
 <launch>
   <arg name="model" default="$(find adamr2_description)/urdf/robot.xacro"/>
   <arg name="ypspur_params" default="$(find adamr2_control)/config/adamr2.param"/>
-  <arg name="ypspur_dev" default="/dev/ttyACM0"/>
+  <arg name="ypspur_dev" default="/dev/tfrog-driver"/>
 
-  <param name="robot_description" command="$(find xacro)/xacro --inorder $(arg model)"/>
+  <param name="robot_description" command="$(find xacro)/xacro $(arg model)"/>
 
   <rosparam file="$(find adamr2_control)/config/controller.yml" command="load"/>
 

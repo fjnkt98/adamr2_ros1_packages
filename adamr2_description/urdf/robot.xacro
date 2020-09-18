@@ -5,6 +5,7 @@
   <xacro:include filename="$(find adamr2_description)/urdf/wheel/transmission.xacro"/>
   <xacro:include filename="$(find adamr2_description)/urdf/caster/caster.xacro"/>
   <xacro:include filename="$(find adamr2_description)/urdf/lidar/lidar.xacro"/>
+  <xacro:include filename="$(find adamr2_description)/urdf/camera/camera.xacro"/>
 
   <!-- base_footprint -->
   <link name="base_footprint"/>
@@ -46,7 +47,11 @@
 
   <!-- lidar -->
   <xacro:lidar parent="base_link">
-    <origin xyz="0.275 0 0.177" rpy="0 0 ${radians(180)}"/>
+    <origin xyz="0.275 0 0.177" rpy="0 0 ${radians(270)}"/>
   </xacro:lidar>
 
+  <!-- camera -->
+  <xacro:camera parent="base_link">
+    <origin xyz="0.280 0.0 0.0625"/>
+  </xacro:camera>
 </robot>

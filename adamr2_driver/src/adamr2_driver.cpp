@@ -49,8 +49,8 @@ namespace adamr2 {
 
     // Set the maximum angular velocity and acceleration.
     // unit is [rad/s] and [rad/s^2] in tire axis.
-    YP_set_wheel_vel(13.0, 13.0);
-    YP_set_wheel_accel(13.0, 13.0);
+    YP_set_wheel_vel(11.6, 11.6);
+    YP_set_wheel_accel(19.35, 19.35);
 
     return ret;
   }
