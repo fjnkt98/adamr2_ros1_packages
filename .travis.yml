@@ -13,6 +13,7 @@ matrix:
 branches:
   only:
     - master
+    - melodic-devel
 
 # env
 env:
@@ -24,18 +25,10 @@ before_install:
   - sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
   - sudo apt-key adv --keyserver 'hkp://keyserver.ubuntu.com:80' --recv-key C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654
   - sudo apt update
-  - sudo apt install -y ros-$ROS_DISTRO-desktop-full python-rosdep python-catkin-pkg python-wstool python-catkin-tools
+  - sudo apt install -y ros-$ROS_DISTRO-desktop-full python-rosdep python-rosinstall python-rosinstall-generator python-wstool python-catkin-tools build-essential
   - source /opt/ros/$ROS_DISTRO/setup.bash
   - sudo rosdep init
   - rosdep update
-  - git clone https://github.com/openspur/yp-spur
-  - cd yp-spur
-  - mkdir build
-  - cd build
-  - cmake ..
-  - make
-  - sudo make install
-  - sudo ldconfig
 
 install:
   - mkdir -p ~/catkin_ws/src
@@ -43,6 +36,7 @@ install:
   - catkin init
   - cd ~/catkin_ws/src
   - ln -s $CI_SOURCE_PATH .
+  - rosdep install -y -i --from-path ~/catkin_ws/src/adamr2_ros1_packages/
 
 script:
   - cd ~/catkin_ws
