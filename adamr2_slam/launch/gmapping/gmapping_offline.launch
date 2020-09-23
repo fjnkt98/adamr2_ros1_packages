@@ -1,11 +1,12 @@
 <launch>
   <arg name="model" default="$(find adamr2_description)/urdf/robot.xacro"/>
   <arg name="rvizconfig" default="$(find adamr2_slam)/rviz/gmapping.rviz" />
+  <arg name="situation"/> <!--`real` or `sim`-->
 
   <param name="robot_description" command="$(find xacro)/xacro $(arg model)"/>
   
   <node pkg="gmapping" type="slam_gmapping" name="slam_gmapping" clear_params="true" output="screen">
-    <rosparam file="$(find adamr2_slam)/config/gmapping/gmapping.yml" command="load"/>
+    <rosparam file="$(find adamr2_slam)/config/gmapping/gmapping_$(arg situation).yml" command="load"/>
     <remap from="scan" to="/adamr2/scan"/>
   </node>
 
