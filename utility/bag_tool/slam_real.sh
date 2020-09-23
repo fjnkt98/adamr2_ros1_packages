@@ -5,11 +5,11 @@ TODAY=$(date "+%Y%m%d")
 
 TARGET_DIR="~/adamr2_experiments/real/slam/${TODAY}"
 
-if [ ! e $TARGET_DIR ]; then
-  mkdir -p $TARGET_DIR
+if [ ! -e ~/adamr2_experiments/real/slam/${TODAY} ]; then
+  mkdir -p ~/adamr2_experiments/real/slam/${TODAY}
 fi
 
-cd $TARGET_DIR
+cd ~/adamr2_experiments/real/slam/${TODAY}
 
 DIR_NUM=$(ls -l | grep ^d | wc -l)
 TITLE_NUM=$((++DIR_NUM))
