@@ -11,6 +11,8 @@
   <arg name="local_planner_param_file"  default="$(find adamr2_navigation)/config/planner/local/trajectory_planner.yml"/>
   <arg name="move_base_param_file"      default="$(find adamr2_navigation)/config/move_base.yml"/>
 
+  <arg name="rvizconfig" default="$(find adamr2_navigation)/rviz/adamr2_navigation.rviz" />
+
   <!-- MAP SERVER -->
   <include file="$(find adamr2_navigation)/launch/map_server.launch">
     <arg name="frame_id" value="$(arg frame_id)"/>
@@ -32,5 +34,5 @@
   </include>
 
   <!-- Rviz -->
-  <node name="rviz" pkg="rviz" type="rviz" required="true" args="-d $(find adamr2_navigation)/rviz/navigation.rviz" />
+  <node name="rviz" pkg="rviz" type="rviz" required="true" args="-d $(arg rvizconfig)" />
 </launch>

@@ -1,6 +1,6 @@
 <launch>
   <arg name="model" default="$(find adamr2_description)/urdf/robot.xacro"/>
-  <arg name="rvizconfig" default="$(find adamr2_bringup)/rviz/lidar_and_robotmodel.rviz" />
+  <arg name="rvizconfig" default="$(find adamr2_bringup)/rviz/check_lidar_coordinate.rviz" />
 
   <param name="robot_description" command="$(find xacro)/xacro $(arg model)" />
 
