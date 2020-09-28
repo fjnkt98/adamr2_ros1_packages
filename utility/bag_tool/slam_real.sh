@@ -3,13 +3,14 @@ set -e
 
 TODAY=$(date "+%Y%m%d")
 
-TARGET_DIR="~/adamr2_experiments/real/slam/${TODAY}"
+TARGET_DIR="/home/${USER}/adamr2_experiments/real/slam/${TODAY}"
 
-if [ ! -e ~/adamr2_experiments/real/slam/${TODAY} ]; then
-  mkdir -p ~/adamr2_experiments/real/slam/${TODAY}
+if [ ! -e $TARGET_DIR ]; then
+  mkdir -p $TARGET_DIR
+  echo "-- Target directory was successfully generated. --"
 fi
 
-cd ~/adamr2_experiments/real/slam/${TODAY}
+cd $TARGET_DIR
 
 DIR_NUM=$(ls -l | grep ^d | wc -l)
 TITLE_NUM=$((++DIR_NUM))
