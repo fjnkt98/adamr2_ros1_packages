@@ -20,9 +20,8 @@ cd exp$((TITLE_NUM))
 
 mkdir bag && cd bag
 
-rosbag record /tf \
+rosbag record -j /tf \
               /tf_static \
               /adamr2/camera/depth/color/points \
-              /adamr2/camera/color/image_raw \
               /adamr2/scan \
               /adamr2/diff_drive_controller/odom \
