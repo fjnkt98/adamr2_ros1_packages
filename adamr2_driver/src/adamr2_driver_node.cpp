@@ -1,6 +1,8 @@
 #include "adamr2_driver/adamr2_driver.h"
 #include <ros/ros.h>
 #include <controller_manager/controller_manager.h>
+#include <diagnostic_updater/diagnostic_updater.h>
+#include <diagnostic_updater/DiagnosticStatusWrapper.h>
 
 //extern "C" {
 #include <ypspur.h>
@@ -10,8 +12,14 @@ int main(int argc, char *argv[]) {
   ros::init(argc, argv, "adamr2_driver_node");
   ros::NodeHandle nh;
 
+  // Controller Configuration
   adamr2::Adamr2Driver driver;
   controller_manager::ControllerManager cm(&driver);
+
+  // Diagnostics Configuration
+  diagnostic_updater::Updater updater;
+  updater.setHardwareID("T-Frog Driver");
+  updater.add("Board", &driver, &adamr2::Adamr2Driver::updateDiagnostics);
 
   ros::AsyncSpinner spinner(1);
   spinner.start();
@@ -36,6 +44,8 @@ int main(int argc, char *argv[]) {
 
       ROS_INFO("T-Frog driver connected.");
     }
+
+    updater.update();
 
     dt.sleep();
   }

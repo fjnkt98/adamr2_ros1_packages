@@ -1,6 +1,8 @@
 #include "adamr2_driver/adamr2_driver.h"
 #include <ros/ros.h>
 
+#include <string>
+
 //extern "C" {
 #include <ypspur.h>
 //}
@@ -79,5 +81,34 @@ namespace adamr2 {
 
   void Adamr2Driver::write(ros::Time time, ros::Duration period) {
     YP_wheel_vel(-cmd_[0], cmd_[1]);
+  }
+
+  void Adamr2Driver::updateDiagnostics(diagnostic_updater::DiagnosticStatusWrapper &stat) {
+    int device_error_state = 0;
+    
+    int err = 0;
+    double spur_msg_time = YP_get_device_error_state(0, &err);
+
+    device_error_state |= err;
+
+    if (YP_get_error_state() == 0) {  // Connected
+      if (spur_msg_time == 0) {
+        stat.summaryf(diagnostic_msgs::DiagnosticStatus::OK,
+                      "The motor controller does not provide device error state.");
+      } else {
+        if (ros::Time(spur_msg_time) < (ros::Time::now() - ros::Duration(1.0))) {
+          stat.summaryf(diagnostic_msgs::DiagnosticStatus::WARN,
+                        "The motor controller does not update latest device error state.");
+        } else {
+          stat.summaryf(diagnostic_msgs::DiagnosticStatus::OK,
+                      "The motor controller is running without error.");
+        }
+      }
+    } else {  // Connection is dead
+      std::string error_msg = "Connection to ypspur-coordinator is down. The motor controller reported error id: "
+                              + std::to_string(device_error_state);
+
+      stat.summaryf(diagnostic_msgs::DiagnosticStatus::ERROR, error_msg.c_str());
+    }
   }
 } // namespace adamr2

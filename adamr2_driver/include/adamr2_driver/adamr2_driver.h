@@ -5,6 +5,8 @@
 #include <hardware_interface/joint_command_interface.h>
 #include <hardware_interface/joint_state_interface.h>
 #include <hardware_interface/robot_hw.h>
+#include <diagnostic_updater/diagnostic_updater.h>
+#include <diagnostic_updater/DiagnosticStatusWrapper.h>
 
 namespace adamr2 {
   class Adamr2Driver : public hardware_interface::RobotHW {
@@ -24,6 +26,7 @@ namespace adamr2 {
       void stop() const;
       void read(ros::Time, ros::Duration);
       void write(ros::Time, ros::Duration);
+      void updateDiagnostics(diagnostic_updater::DiagnosticStatusWrapper &stat);
 
     protected:
       hardware_interface::JointStateInterface joint_state_interface;
