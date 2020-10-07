@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<robot name="adamr2" xmlns:xacro="http://ros.org/wiki/xacro">
+  <xacro:include filename="$(find adamr2_description)/urdf/base/base.xacro"/>
+  <xacro:include filename="$(find adamr2_description)/urdf/wheel/wheel.xacro"/>
+  <xacro:include filename="$(find adamr2_description)/urdf/wheel/transmission.xacro"/>
+  <xacro:include filename="$(find adamr2_description)/urdf/caster/caster.xacro"/>
+  <xacro:include filename="$(find adamr2_description)/urdf/lidar/lidar.xacro"/>
+  <xacro:include filename="$(find realsense2_description)/urdf/_d435.urdf.xacro" />
+
+  <!-- base_footprint -->
+  <link name="base_footprint"/>
+
+  <!-- base_link -->
+  <xacro:base parent="base_footprint">
+    <origin xyz="0.0 0.0 0.262"/>
+  </xacro:base>
+
+  <!--wheels-->
+  <!-- left -->
+  <xacro:wheel prefix="left" parent="base_link">
+    <origin xyz="0.0 0.1915 -0.1845"/>
+    <axis xyz="0 1 0"/>
+  </xacro:wheel>
+
+  <xacro:wheel_trans prefix="left"/>
+
+  <!-- right -->
+  <xacro:wheel prefix="right" parent="base_link">
+    <origin xyz="0.0 -0.1915 -0.1845"/>
+    <axis xyz="0 1 0"/>
+  </xacro:wheel>
+
+  <xacro:wheel_trans prefix="right"/>
+
+  <!--casters-->
+  <!-- back -->
+  <xacro:caster prefix="back" parent="base_link">
+    <origin xyz="-0.275 0.0 -0.1498"/>
+    <axis xyz="0 0 1"/>
+  </xacro:caster>
+
+  <!-- front -->
+  <xacro:caster prefix="front" parent="base_link">
+    <origin xyz="0.275 0.0 -0.1498" rpy="0 0 ${radians(180)}"/>
+    <axis xyz="0 0 1"/>
+  </xacro:caster>
+
+  <!-- lidar -->
+  <xacro:lidar parent="base_link">
+    <origin xyz="0.275 0 0.177" rpy="0 0 ${radians(270)}"/>
+  </xacro:lidar>
+
+  <!-- camera -->
+  <xacro:sensor_d435 parent="base_link" use_nominal_extrinsics="$(arg use_nominal_extrinsics)">
+    <origin xyz="0.280 0.0 0.050"/>
+  </xacro:sensor_d435>
+</robot>
