@@ -19,7 +19,7 @@ int main(int argc, char *argv[]) {
   // Diagnostics Configuration
   diagnostic_updater::Updater updater;
   updater.setHardwareID("T-Frog Driver");
-  updater.add("Board", &driver, &adamr2::Adamr2Driver::updateDiagnostics);
+  updater.add("Board Status", &driver, &adamr2::Adamr2Driver::updateDiagnostics);
 
   ros::AsyncSpinner spinner(1);
   spinner.start();

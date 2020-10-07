@@ -93,19 +93,17 @@ namespace adamr2 {
 
     if (YP_get_error_state() == 0) {  // Connected
       if (spur_msg_time == 0) {
-        stat.summaryf(diagnostic_msgs::DiagnosticStatus::OK,
-                      "The motor controller does not provide device error state.");
+        stat.summaryf(diagnostic_msgs::DiagnosticStatus::OK, "T-Frog is OK");
       } else {
         if (ros::Time(spur_msg_time) < (ros::Time::now() - ros::Duration(1.0))) {
           stat.summaryf(diagnostic_msgs::DiagnosticStatus::WARN,
-                        "The motor controller does not update latest device error state.");
+                        "WARN: doesn't update latest device error state.");
         } else {
-          stat.summaryf(diagnostic_msgs::DiagnosticStatus::OK,
-                      "The motor controller is running without error.");
+          stat.summaryf(diagnostic_msgs::DiagnosticStatus::OK, "T-Frog is OK");
         }
       }
     } else {  // Connection is dead
-      std::string error_msg = "Connection to ypspur-coordinator is down. The motor controller reported error id: "
+      std::string error_msg = "ERROR: Connection to ypspur-coordinator is down. The motor controller reported error id: "
                               + std::to_string(device_error_state);
 
       stat.summaryf(diagnostic_msgs::DiagnosticStatus::ERROR, error_msg.c_str());
