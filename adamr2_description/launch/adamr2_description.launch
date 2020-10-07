@@ -1,7 +1,7 @@
 <launch>
   <arg name="model" default="$(find adamr2_description)/urdf/robot.xacro"/>
 
-  <param name="robot_description" command="$(find xacro)/xacro $(arg model)" />
+  <param name="robot_description" command="$(find xacro)/xacro $(arg model) use_nominal_extrinsics:=true add_plug:=false"/>
 
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
 </launch>
