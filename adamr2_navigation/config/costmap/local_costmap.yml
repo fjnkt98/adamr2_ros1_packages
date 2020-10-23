@@ -8,7 +8,7 @@ local_costmap:
   global_frame: odom
   robot_base_frame: base_footprint
   transform_tolerance: 0.2
-  footprint: [[0.225, 0.3], [0.225, -0.3], [-0.225, -0.3], [-0.225, 0.3]]
+  footprint: [[0.35, 0.225], [0.35, -0.225], [-0.37, -0.225], [-0.37, 0.225]]
 
   #  Rate parameters
   update_frequency: 10.0
