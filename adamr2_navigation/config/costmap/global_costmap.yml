@@ -8,7 +8,7 @@ global_costmap:
   global_frame: map
   robot_base_frame: base_footprint
   transform_tolerance: 0.2  # default: 0.2
-  footprint: [[0.225, 0.3], [0.225, -0.3], [-0.225, -0.3], [-0.225, 0.3]]
+  footprint: [[0.35, 0.225], [0.35, -0.225], [-0.37, -0.225], [-0.37, 0.225]]
 
   # Rate parameters
   update_frequency: 2.0     # default: 5.0
@@ -24,11 +24,11 @@ global_costmap:
     lethal_cost_threshold: 100  # default: 100
     map_topic: map              # default: map
     first_map_only: false       # default: false
-    subscribe_to_updates: true  # default: false
-    track_unknown_space: false  # default: true
+    subscribe_to_updates: false # default: false
+    track_unknown_space: true   # default: true
     use_maximum: false          # default: false
     trinary_costmap: true       # default: true
 
   inflation_layer:
-    inflation_radius: 0.55      # default: 0.55
-    cost_scaling_factor: 10.0   # default: 10.0
+    inflation_radius: 0.6      # default: 0.55
+    cost_scaling_factor: 3.66   # default: 10.0
