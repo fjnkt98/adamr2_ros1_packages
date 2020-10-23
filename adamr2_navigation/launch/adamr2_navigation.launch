@@ -1,7 +1,7 @@
 <launch>
   <!-- Arguments for each nodes -->
   <arg name="frame_id" default="map"/>
-  <arg name="map_file" default="$(env HOME)/experiment_map/large_map/map.yaml"/>
+  <arg name="map_file" default="$(env HOME)/adamr2_experiments/simulation/slam/20201023/exp1/map/map.yaml"/>
 
   <arg name="amcl_param_file" default="$(find adamr2_navigation)/config/amcl/amcl.yml"/>
 

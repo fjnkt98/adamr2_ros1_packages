@@ -3,5 +3,6 @@
   <!-- amcl -->
   <node pkg="amcl" type="amcl" name="amcl" output="screen">
     <rosparam file="$(arg amcl_param_file)" command="load" />
+    <remap from="scan" to="/adamr2/scan"/>
   </node>
 </launch>
