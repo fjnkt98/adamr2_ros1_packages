@@ -8,7 +8,7 @@
   <arg name="global_costmap_param_file" default="$(find adamr2_navigation)/config/costmap/global_costmap.yml"/>
   <arg name="local_costmap_param_file"  default="$(find adamr2_navigation)/config/costmap/local_costmap.yml"/>
   <arg name="global_planner_param_file" default="$(find adamr2_navigation)/config/planner/global/global_planner.yml"/>
-  <arg name="local_planner_param_file"  default="$(find adamr2_navigation)/config/planner/local/trajectory_planner.yml"/>
+  <arg name="local_planner_param_file"  default="$(find adamr2_navigation)/config/planner/local/dwa_local_planner.yml"/>
   <arg name="move_base_param_file"      default="$(find adamr2_navigation)/config/move_base.yml"/>
 
   <arg name="rvizconfig" default="$(find adamr2_navigation)/rviz/adamr2_navigation.rviz" />
