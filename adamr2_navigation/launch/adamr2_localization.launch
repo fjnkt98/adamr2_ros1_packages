@@ -1,11 +1,11 @@
 <launch>
   <!-- Arguments for each nodes -->
   <arg name="frame_id" default="map"/>
-  <arg name="map_file" default="$(env HOME)/adamr2_experiments/simulation/slam/20201023/exp1/map/map.yaml"/>
+  <arg name="map_file" default="$(env HOME)/adamr2_experiments/real/slam/20200925/exp2/map/map.yaml"/>
 
   <arg name="amcl_param_file" default="$(find adamr2_navigation)/config/amcl/amcl.yml"/>
 
-  <arg name="rvizconfig" default="$(find adamr2_navigation)/rviz/adamr2_navigation.rviz" />
+  <arg name="rvizconfig" default="$(find adamr2_navigation)/rviz/adamr2_localization.rviz" />
 
   <!-- MAP SERVER -->
   <include file="$(find adamr2_navigation)/launch/map_server.launch">
