@@ -36,13 +36,11 @@
   <!-- back -->
   <xacro:caster prefix="back" parent="base_link">
     <origin xyz="-0.275 0.0 -0.1498"/>
-    <axis xyz="0 0 1"/>
   </xacro:caster>
 
   <!-- front -->
   <xacro:caster prefix="front" parent="base_link">
     <origin xyz="0.275 0.0 -0.1498" rpy="0 0 ${radians(180)}"/>
-    <axis xyz="0 0 1"/>
   </xacro:caster>
 
   <!-- lidar -->
