@@ -54,7 +54,7 @@
   <xacro:caster_gazebo prefix="front"/>
 
   <!-- lidar -->
-  <xacro:lidar parent="base_link">
+  <xacro:lidar parent="base_link" visual_yaw_orientation="${radians(0)}">
     <origin xyz="0.275 0 0.177" rpy="0 0 0"/>
   </xacro:lidar>
   <xacro:lidar_gazebo/>
