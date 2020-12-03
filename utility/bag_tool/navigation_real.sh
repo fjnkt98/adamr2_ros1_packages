@@ -28,13 +28,13 @@ rosbag record /tf \
               /adamr2/diff_drive_controller/odom \
               /amcl_pose \
               /map \
-              /move_base/TrajectoryPlannerROS/global_plan
-              /move_base/TrajectoryPlannerROS/local_plan
+              /move_base/TrajectoryPlannerROS/global_plan \
+              /move_base/TrajectoryPlannerROS/local_plan \
               /move_base/GlobalPlanner/plan \
               /move_base/current_goal \
-              /move_base/global_costmap/costmap
-              /move_base/global_costmap/costmap_updates
-              /move_base/global_costmap/footprint
+              /move_base/global_costmap/costmap \
+              /move_base/global_costmap/costmap_updates \
+              /move_base/global_costmap/footprint \
               /move_base/goal \
               /move_base/local_costmap/costmap \
               /move_base/local_costmap/costmap_updates \
