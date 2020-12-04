@@ -50,5 +50,5 @@ local_costmap:
       inf_is_valid: false       # default: false
 
   inflation_layer:
-    inflation_radius: 0.5     # default: 0.55
+    inflation_radius: 0.4     # default: 0.55
     cost_scaling_factor: 3.66 # default: 10.0
