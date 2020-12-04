@@ -25,4 +25,4 @@ rosbag record /tf \
               /adamr2/camera/depth/color/points \
               /adamr2/camera/color/image_raw \
               /adamr2/scan \
-              /adamr2/diff_drive_controller/odom \
+              /adamr2/diff_drive_controller/odom
