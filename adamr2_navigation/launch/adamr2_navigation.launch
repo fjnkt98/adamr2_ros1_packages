@@ -1,39 +1,52 @@
 <launch>
+  <!-- Select experiment situation-->
+  <!-- `real` or `sim-->
+  <arg name="situation" default=""/>
+
+  <!--
+    Path to the map file(.yaml) for map_server node.
+    When execute this launch file, it's useful to move the directory
+    where the map.yaml file is located and enter as follows:
+      map_file:=`pwd`/map.yaml
+  -->
+  <arg name="map_file" default=""/>
+
   <!-- Arguments for each nodes -->
   <arg name="frame_id" default="map"/>
-  <arg name="map_file" default="$(env HOME)/adamr2_experiments/real/slam/20200925/exp2/map/map.yaml"/>
-  <!--<arg name="map_file" default="$(env HOME)/adamr2_experiments/simulation/slam/20201023/exp1/map/map.yaml"/>-->
 
-  <arg name="amcl_param_file" default="$(find adamr2_navigation)/config/amcl/amcl.yml"/>
+  <arg name="amcl_param_file" default="$(find adamr2_navigation)/config/$(arg situation)/amcl/amcl.yml"/>
 
-  <arg name="global_costmap_param_file" default="$(find adamr2_navigation)/config/costmap/global_costmap.yml"/>
-  <arg name="local_costmap_param_file"  default="$(find adamr2_navigation)/config/costmap/local_costmap.yml"/>
-  <arg name="global_planner_param_file" default="$(find adamr2_navigation)/config/planner/global/global_planner.yml"/>
-  <arg name="local_planner_param_file"  default="$(find adamr2_navigation)/config/planner/local/trajectory_planner.yml"/>
-  <arg name="move_base_param_file"      default="$(find adamr2_navigation)/config/move_base.yml"/>
+  <arg name="global_costmap_param_file" default="$(find adamr2_navigation)/config/$(arg situation)/costmap/global_costmap.yml"/>
+  <arg name="local_costmap_param_file"  default="$(find adamr2_navigation)/config/$(arg situation)/costmap/local_costmap.yml"/>
+  <arg name="global_planner_param_file" default="$(find adamr2_navigation)/config/$(arg situation)/planner/global/global_planner.yml"/>
+  <arg name="local_planner_param_file"  default="$(find adamr2_navigation)/config/$(arg situation)/planner/local/trajectory_planner.yml"/>
+  <arg name="move_base_param_file"      default="$(find adamr2_navigation)/config/$(arg situation)/move_base.yml"/>
 
   <arg name="rvizconfig" default="$(find adamr2_navigation)/rviz/adamr2_navigation.rviz" />
 
-  <!-- MAP SERVER -->
-  <include file="$(find adamr2_navigation)/launch/map_server.launch">
-    <arg name="frame_id" value="$(arg frame_id)"/>
-    <arg name="map_file" value="$(arg map_file)"/>
-  </include>
+  <!-- following nodes will only be executed if `situation` is set -->
+  <group if="$(eval situation=='real' or situation=='sim')">
+    <!-- MAP SERVER -->
+    <include file="$(find adamr2_navigation)/launch/map_server.launch">
+      <arg name="frame_id" value="$(arg frame_id)"/>
+      <arg name="map_file" value="$(arg map_file)"/>
+    </include>
 
-  <!-- AMCL -->
-  <include file="$(find adamr2_navigation)/launch/amcl.launch">
-    <arg name="amcl_param_file" value="$(arg amcl_param_file)"/>
-  </include>
+    <!-- AMCL -->
+    <include file="$(find adamr2_navigation)/launch/amcl.launch">
+      <arg name="amcl_param_file" value="$(arg amcl_param_file)"/>
+    </include>
 
-  <!-- MOVE BASE -->
-  <include file="$(find adamr2_navigation)/launch/move_base.launch">
-    <arg name="global_costmap_param_file" value="$(arg global_costmap_param_file)"/>
-    <arg name="local_costmap_param_file"  value="$(arg local_costmap_param_file)"/>
-    <arg name="global_planner_param_file" value="$(arg global_planner_param_file)"/>
-    <arg name="local_planner_param_file"  value="$(arg local_planner_param_file)"/>
-    <arg name="move_base_param_file"      value="$(arg move_base_param_file)"/>
-  </include>
+    <!-- MOVE BASE -->
+    <include file="$(find adamr2_navigation)/launch/move_base.launch">
+      <arg name="global_costmap_param_file" value="$(arg global_costmap_param_file)"/>
+      <arg name="local_costmap_param_file"  value="$(arg local_costmap_param_file)"/>
+      <arg name="global_planner_param_file" value="$(arg global_planner_param_file)"/>
+      <arg name="local_planner_param_file"  value="$(arg local_planner_param_file)"/>
+      <arg name="move_base_param_file"      value="$(arg move_base_param_file)"/>
+    </include>
 
-  <!-- Rviz -->
-  <node name="rviz" pkg="rviz" type="rviz" required="true" args="-d $(arg rvizconfig)" />
+    <!-- Rviz -->
+    <node name="rviz" pkg="rviz" type="rviz" required="true" args="-d $(arg rvizconfig)" />
+  </group>
 </launch>
