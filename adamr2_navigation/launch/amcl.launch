@@ -1,5 +1,5 @@
 <launch>
-  <arg name="amcl_param_file" default="$(find adamr2_navigation)/config/amcl/amcl.yml"/>
+  <arg name="amcl_param_file" default="$(find adamr2_navigation)/config/real/amcl/amcl.yml"/>
   <!-- amcl -->
   <node pkg="amcl" type="amcl" name="amcl" output="screen">
     <rosparam file="$(arg amcl_param_file)" command="load" />
