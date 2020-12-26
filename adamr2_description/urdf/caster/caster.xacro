@@ -1,11 +1,10 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
-  <xacro:macro name="caster" params="prefix parent *joint_origin *joint_axis">
+  <xacro:macro name="caster" params="prefix parent *joint_origin">
     <joint name="${prefix}_caster_support_joint" type="fixed">
       <xacro:insert_block name="joint_origin"/>
       <parent link="${parent}"/>
       <child link="${prefix}_caster_support_link"/>
-      <xacro:insert_block name="joint_axis"/>
     </joint>
     
     <link name="${prefix}_caster_support_link">
@@ -30,7 +29,6 @@
       <origin xyz="-0.030 0.0 -0.072" rpy="0.0 0.0 0.0"/>
       <parent link="${prefix}_caster_support_link"/>
       <child link="${prefix}_caster_wheel_link"/>
-      <axis xyz="0.0 1 0.0"/>
     </joint>
 
     <link name="${prefix}_caster_wheel_link">

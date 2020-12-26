@@ -5,11 +5,13 @@
   <arg name="inverted" default="false"/>
   <arg name="angle_compensate" default="true"/>
 
-  <node name="rplidarNode" pkg="rplidar_ros" type="rplidarNode" output="screen">
-    <param name="serial_port"      type="string" value="$(arg device)"/>
-    <param name="serial_baudrate"  type="int"    value="$(arg baudrate)"/>
-    <param name="frame_id"         type="string" value="$(arg frame_id)"/>
-    <param name="inverted"         type="bool"   value="$(arg inverted)"/>
-    <param name="angle_compensate" type="bool"   value="$(arg angle_compensate)"/>
-  </node>
+  <group ns="/adamr2">
+    <node name="rplidarNode" pkg="rplidar_ros" type="rplidarNode" output="screen">
+      <param name="serial_port"      type="string" value="$(arg device)"/>
+      <param name="serial_baudrate"  type="int"    value="$(arg baudrate)"/>
+      <param name="frame_id"         type="string" value="$(arg frame_id)"/>
+      <param name="inverted"         type="bool"   value="$(arg inverted)"/>
+      <param name="angle_compensate" type="bool"   value="$(arg angle_compensate)"/>
+    </node>
+  </group>
 </launch>

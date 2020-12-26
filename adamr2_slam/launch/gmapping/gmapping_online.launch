@@ -1,8 +1,10 @@
 <launch>
   <arg name="rvizconfig" default="$(find adamr2_slam)/rviz/gmapping.rviz" />
+  <arg name="situation"/> <!--`real` or `sim`-->
 
   <node pkg="gmapping" type="slam_gmapping" name="slam_gmapping" clear_params="true">
-    <rosparam file="$(find adamr2_slam)/config/gmapping/gmapping.yml" command="load"/>
+    <rosparam file="$(find adamr2_slam)/config/gmapping/gmapping_$(arg situation).yml" command="load"/>
+    <remap from="scan" to="/adamr2/scan"/>
   </node>
 
   <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" required="true"/>

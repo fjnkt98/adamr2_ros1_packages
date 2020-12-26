@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
-  <xacro:macro name="lidar" params="parent *joint_origin">
+  <xacro:macro name="lidar" params="parent visual_yaw_orientation *joint_origin">
     <joint name="lidar_joint" type="fixed">
       <xacro:insert_block name="joint_origin"/>
       <parent link="${parent}"/>
@@ -9,6 +9,7 @@
 
     <link name="lidar_link">
       <visual>
+        <origin xyz="0.0 0.0 0.0" rpy="0 0 ${visual_yaw_orientation}"/>
         <geometry>
           <mesh filename="package://adamr2_description/meshes/lidar_link.STL"/>
         </geometry>
