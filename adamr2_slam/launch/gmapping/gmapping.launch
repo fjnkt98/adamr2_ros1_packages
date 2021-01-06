@@ -1,9 +1,10 @@
 <launch>
   <arg name="rvizconfig" default="$(find adamr2_slam)/rviz/gmapping.rviz" />
   <arg name="situation"/> <!--`real` or `sim`-->
+  <arg name="environment" default="indoor"/> <!--`indoor` of `outdoor`-->
 
   <node pkg="gmapping" type="slam_gmapping" name="slam_gmapping" clear_params="true">
-    <rosparam file="$(find adamr2_slam)/config/gmapping/gmapping_$(arg situation).yml" command="load"/>
+    <rosparam file="$(find adamr2_slam)/config/$(arg situation)/gmapping_$(arg environment).yml" command="load"/>
     <remap from="scan" to="/adamr2/scan"/>
   </node>
 
