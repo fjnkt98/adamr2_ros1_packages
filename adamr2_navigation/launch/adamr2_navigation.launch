@@ -11,21 +11,25 @@
   -->
   <arg name="map_file" default=""/>
 
+  <!-- Select experiment environment-->
+  <!-- `indoor` or `outdoor`-->
+  <arg name="environment" default=""/>
+
   <!-- Arguments for each nodes -->
   <arg name="frame_id" default="map"/>
 
-  <arg name="amcl_param_file" default="$(find adamr2_navigation)/config/$(arg situation)/amcl/amcl.yml"/>
+  <arg name="amcl_param_file" default="$(find adamr2_navigation)/config/$(arg situation)/$(arg environment)/amcl/amcl.yml"/>
 
-  <arg name="global_costmap_param_file" default="$(find adamr2_navigation)/config/$(arg situation)/costmap/global_costmap.yml"/>
-  <arg name="local_costmap_param_file"  default="$(find adamr2_navigation)/config/$(arg situation)/costmap/local_costmap.yml"/>
-  <arg name="global_planner_param_file" default="$(find adamr2_navigation)/config/$(arg situation)/planner/global/global_planner.yml"/>
-  <arg name="local_planner_param_file"  default="$(find adamr2_navigation)/config/$(arg situation)/planner/local/trajectory_planner.yml"/>
-  <arg name="move_base_param_file"      default="$(find adamr2_navigation)/config/$(arg situation)/move_base.yml"/>
+  <arg name="global_costmap_param_file" default="$(find adamr2_navigation)/config/$(arg situation)/$(arg environment)/costmap/global_costmap.yml"/>
+  <arg name="local_costmap_param_file"  default="$(find adamr2_navigation)/config/$(arg situation)/$(arg environment)/costmap/local_costmap.yml"/>
+  <arg name="global_planner_param_file" default="$(find adamr2_navigation)/config/$(arg situation)/$(arg environment)/planner/global/global_planner.yml"/>
+  <arg name="local_planner_param_file"  default="$(find adamr2_navigation)/config/$(arg situation)/$(arg environment)/planner/local/trajectory_planner.yml"/>
+  <arg name="move_base_param_file"      default="$(find adamr2_navigation)/config/$(arg situation)/$(arg environment)/move_base.yml"/>
 
   <arg name="rvizconfig" default="$(find adamr2_navigation)/rviz/adamr2_navigation.rviz" />
 
-  <!-- following nodes will only be executed if `situation` is set -->
-  <group if="$(eval situation=='real' or situation=='sim')">
+  <!-- following nodes will only be executed if arg `situation`, arg `environment`, or arg 'map_file' is not seted.-->
+  <group unless="$(eval situation=='' or environment=='' or map_file=='')">
     <!-- MAP SERVER -->
     <include file="$(find adamr2_navigation)/launch/map_server.launch">
       <arg name="frame_id" value="$(arg frame_id)"/>
