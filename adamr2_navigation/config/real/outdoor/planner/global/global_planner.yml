@@ -1,0 +1,15 @@
+base_global_planner: global_planner/GlobalPlanner
+GlobalPlanner:
+  allow_unknown: true         # default: true
+  default_tolerance: 0.3      # default: 0.0
+  visualize_potential: false  # default: false
+  use_dijkstra: true          # default: true
+  use_quadratic: true         # default: true
+  use_grid_path: false        # default: false
+  old_navfn_behavior: false   # default: false
+  lethal_cost: 253            # default: 253
+  neutral_cost: 50            # default: 50
+  cost_factor: 0.8            # default: 0.8
+  publish_potential: false    # default: ture
+  orientation_mode: 0         # default: 0
+  orientation_window_size: 1  # default: 1
