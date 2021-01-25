@@ -7,10 +7,8 @@ scan_filter_chain:
         type: filters/MultiChannelMedianFilterFloat
         params:
           number_of_observations: 5
-          unused: 5
     intensity_filter_chain:
       - name: median
         type: filters/MultiChannelMedianFilterFloat
         params:
           number_of_observations: 5
-          unused: 5
