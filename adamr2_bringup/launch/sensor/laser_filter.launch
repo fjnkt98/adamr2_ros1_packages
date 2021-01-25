@@ -2,5 +2,6 @@
   <node pkg="laser_filters" type="scan_to_scan_filter_chain" name="laser_filter">
     <rosparam file="$(find adamr2_bringup)/config/median_filter.config.yml" command="load"/>
     <remap from="scan" to="/adamr2/scan"/>
+    <remap from="scan_filtered" to="/adamr2/scan_filtered"/>
   </node>
 </launch>
