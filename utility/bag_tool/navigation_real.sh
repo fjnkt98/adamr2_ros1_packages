@@ -27,6 +27,7 @@ rosbag record /tf \
               /adamr2/scan \
               /adamr2/diff_drive_controller/odom \
               /amcl_pose \
+              /particlecloud \
               /map \
               /move_base/TrajectoryPlannerROS/global_plan \
               /move_base/TrajectoryPlannerROS/local_plan \
