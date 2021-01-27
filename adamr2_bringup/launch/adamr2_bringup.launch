@@ -28,6 +28,9 @@
     <arg name="angle_compensate" value="$(arg angle_compensate)"/>
   </include>
 
+  <!-- LiDAR Filters-->
+  <include file="$(find adamr2_bringup)/launch/sensor/laser_filter.launch"/>
+
   <!-- Realsense d435 -->
   <include file="$(find adamr2_bringup)/launch/sensor/realsense.launch"/>
 
