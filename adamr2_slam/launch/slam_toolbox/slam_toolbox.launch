@@ -1,12 +1,10 @@
 <launch>
-  <arg name="model" default="$(find adamr2_description)/urdf/robot.xacro"/>
   <arg name="rvizconfig" default="$(find adamr2_slam)/rviz/gmapping.rviz" />
   <arg name="situation"/> <!--`real` or `sim`-->
+  <arg name="environment" default="indoor"/>
 
-  <param name="robot_description" command="$(find xacro)/xacro $(arg model)"/>
-  
   <node pkg="slam_toolbox" type="sync_slam_toolbox_node" name="slam_toolbox" output="screen">
-    <rosparam file="$(find adamr2_slam)/config/karto_slam/karto_slam_$(arg situation).yml" command="load"/>
+    <rosparam file="$(find adamr2_slam)/config/$(arg situation)/slam_toolbox_$(arg environment).yml" command="load"/>
   </node>
 
   <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" required="true"/>

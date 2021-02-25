@@ -8,29 +8,29 @@ transform_publish_period: 0.05  # default = 0.05
 
 # Laser Parameters
 maxRange: 18
-maxUrange: 15
+maxUrange: 10
 sigma: 0.05       # default = 0.05
 kernelSize: 1     # default = 1
-lstep: 0.05       # default = 0.05
-astep: 0.05       # default = 0.05
-iterations: 5     # default = 5
-lsigma: 0.075     # default = 0.075
+lstep: 0.10       # default = 0.05
+astep: 0.25       # default = 0.05
+iterations: 8     # default = 5
+lsigma: 0.05      # default = 0.075
 ogain: 3.0        # default = 3.0
 lskip: 0          # default = 0
 minimumScore: 0.0 # default = 0.0
 
 # Motion Model Parameters
 srr: 0.1  # default = 0.1
-srt: 0.2  # default = 0.2
-str: 0.1  # default = 0.1
-stt: 0.2  # default = 0.2
+srt: 0.1  # default = 0.2
+str: 0.4  # default = 0.1
+stt: 0.4  # default = 0.2
 
 # Particle Filter Parameters
-linearUpdate: 1.0       # default = 1.0
-angularUpdate: 0.5      # default = 0.5
-temporalUpdate: 1.0     # default = -1.0
+linearUpdate: 0.3       # default = 1.0
+angularUpdate: 0.94     # default = 0.5
+temporalUpdate: -1.0    # default = -1.0
 resampleThreshold: 0.5  # default = 0.5
-particles: 30           # default = 30
+particles: 45           # default = 30
 
 # Map Parameters
 xmin: -10.0   # default = -100.0
